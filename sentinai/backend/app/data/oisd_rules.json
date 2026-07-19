@@ -1,0 +1,30 @@
+[
+  {
+    "id": "OISD-105-01",
+    "standard": "OISD-STD-105",
+    "section": "Clause 4.2",
+    "title": "Hot Work Permit near Hazardous Gas Corridors",
+    "text": "Hot work permits shall not be issued or remain active within 15 meters of any active gas main, Coke Oven battery valve, or vessel carrying toxic/flammable gas where ambient gas concentrations exceed 5% LEL or 10 ppm CO without continuous 4-gas monitoring and continuous safety watch oversight."
+  },
+  {
+    "id": "FA-1948-36",
+    "standard": "Factories Act 1948",
+    "section": "Section 36",
+    "title": "Precautions Against Dangerous Fumes",
+    "text": "No person shall enter or be permitted to enter any chamber, tank, vat, pit, pipe, flue or other confined space in any factory in which dangerous fumes are likely to be present to such an extent as to involve risk of persons being overcome thereby, unless it is provided with a manhole of adequate size or other effective means of egress."
+  },
+  {
+    "id": "DGMS-S-2023",
+    "standard": "DGMS Safety Guidelines",
+    "section": "Rule 112",
+    "title": "Simultaneous Maintenance Operations (SIMOPS)",
+    "text": "Simultaneous operations involving hot work and vessel degassing, shift handoffs, or unmonitored line isolation are strictly prohibited unless a compound risk assessment is performed by the designated Area Safety Controller."
+  },
+  {
+    "id": "OISD-105-08",
+    "standard": "OISD-STD-105",
+    "section": "Clause 7.1",
+    "title": "Shift Handoff Permit Continuity",
+    "text": "During shift changeover windows (T-15 to T+15 minutes), all active hot work permits in Class 1 Zone 1 locations must be temporarily suspended until the incoming shift supervisor re-verifies gas sensor baseline values."
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "zones": [
+    {
+      "id": "Z1",
+      "name": "Coke Oven Battery 4",
+      "x": 80,
+      "y": 60,
+      "width": 240,
+      "height": 160,
+      "description": "High temperature carbonization unit with toxic gas entrapment risks",
+      "sensors": ["S-GAS-101", "S-TEMP-102", "S-PRESS-103"]
+    },
+    {
+      "id": "Z2",
+      "name": "Gas Recovery Plant",
+      "x": 360,
+      "y": 60,
+      "width": 220,
+      "height": 160,
+      "description": "Byproduct gas washing and condensation manifolds",
+      "sensors": ["S-GAS-201", "S-FLOW-202"]
+    },
+    {
+      "id": "Z3",
+      "name": "Blast Furnace 2",
+      "x": 80,
+      "y": 260,
+      "width": 240,
+      "height": 180,
+      "description": "Pig iron reduction furnace & hot blast stoves",
+      "sensors": ["S-GAS-301", "S-TEMP-302"]
+    },
+    {
+      "id": "Z4",
+      "name": "Chemical Storage Tank Farm",
+      "x": 360,
+      "y": 260,
+      "width": 220,
+      "height": 180,
+      "description": "Benzol and tar processing storage vessels",
+      "sensors": ["S-GAS-401", "S-PRESS-402"]
+    }
+  ]
+}
