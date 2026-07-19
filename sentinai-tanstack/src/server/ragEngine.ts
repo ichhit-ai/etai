@@ -54,7 +54,7 @@ SCADA: ${JSON.stringify(activeContext)}
 USER QUERY: ${prompt}`;
 
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const result = await model.generateContent(systemPrompt);
     return {
       answer: result.response.text(),
