@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ShieldAlert, 
   Bot, 
@@ -12,10 +12,18 @@ import {
   TrendingUp,
   Clock,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  FlaskConical
 } from 'lucide-react';
+import { runValidationFn } from '../server/functions';
 
 export default function LandingHero({ onLaunchControlRoom }: { onLaunchControlRoom: () => void }) {
+  const [validationData, setValidationData] = useState<any>(null);
+
+  useEffect(() => {
+    runValidationFn().then(setValidationData).catch(console.error);
+  }, []);
+
   const pillars = [
     {
       icon: <Bot className="w-6 h-6 text-cyan-400" />,
@@ -35,7 +43,7 @@ export default function LandingHero({ onLaunchControlRoom }: { onLaunchControlRo
     {
       icon: <BookOpen className="w-6 h-6 text-blue-400" />,
       title: "Statutory RAG Intelligence",
-      desc: "Zero-trust legal groundtruth index referencing OISD-STD-105, Factories Act 1948 & DGMS rules."
+      desc: "16-provision regulatory index across OISD-STD-105, Factories Act 1948 & DGMS with keyword retrieval."
     },
     {
       icon: <Eye className="w-6 h-6 text-rose-400" />,
@@ -49,29 +57,40 @@ export default function LandingHero({ onLaunchControlRoom }: { onLaunchControlRo
     }
   ];
 
+  const fnrReduction = validationData?.falseNegativeReduction 
+    ? `-${validationData.falseNegativeReduction}%` 
+    : 'Computing...';
+  const leadTime = validationData?.leadTimeAdvantage 
+    ? `+${validationData.leadTimeAdvantage} ticks` 
+    : 'Computing...';
+  const f1Score = validationData?.sentinai?.f1Score 
+    ? `${validationData.sentinai.f1Score}%` 
+    : 'Computing...';
+  const corpusSize = '16 Provisions';
+
   const validationMetrics = [
     {
-      label: "False Negative Rate Reduction",
-      value: "-99.4%",
-      subtext: "Eliminates undetected multi-silo compound risk cascades before catastrophic failure.",
+      label: "False Negative Reduction",
+      value: fnrReduction,
+      subtext: `Computed across ${validationData?.totalTicks || '...'} scenario ticks. SentinAI FNR: ${validationData?.sentinai?.falseNegativeRate ?? '...'}% vs Legacy: ${validationData?.legacy?.falseNegativeRate ?? '...'}%.`,
       icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />
     },
     {
-      label: "Incident Lead Time Prediction",
-      value: "+120 Mins",
-      subtext: "Early warning window before single-sensor threshold breaches trip physical alarms.",
+      label: "Detection Lead Time",
+      value: leadTime,
+      subtext: `SentinAI first detects at tick ${validationData?.sentinai?.firstDetectionTick ?? '...'} vs Legacy at tick ${validationData?.legacy?.firstDetectionTick ?? 'NEVER'}.`,
       icon: <Clock className="w-5 h-5 text-cyan-400" />
     },
     {
-      label: "Compound Risk vs. Legacy Baseline",
-      value: "Multi-Signal Engine",
-      subtext: "Replaces static single-sensor thresholds with dynamic multi-variable correlation math.",
+      label: "SentinAI F1 Score",
+      value: f1Score,
+      subtext: `Precision: ${validationData?.sentinai?.precision ?? '...'}% · Recall: ${validationData?.sentinai?.recall ?? '...'}%. Multi-signal compound risk engine.`,
       icon: <TrendingUp className="w-5 h-5 text-amber-400" />
     },
     {
-      label: "Statutory Regulatory Coverage",
-      value: "100% Grounded",
-      subtext: "OISD-STD-105, Factories Act 1948 Section 36, and DGMS Rule 112 compliance verification.",
+      label: "Statutory RAG Corpus",
+      value: corpusSize,
+      subtext: "OISD-STD-105/116/118/144/150, Factories Act 1948 Sections 36-41C, DGMS Rules 62/112/156/186.",
       icon: <CheckCircle2 className="w-5 h-5 text-blue-400" />
     }
   ];
@@ -108,13 +127,16 @@ export default function LandingHero({ onLaunchControlRoom }: { onLaunchControlRo
         </div>
       </div>
 
-      {/* Crucial Validation Metrics Section */}
+      {/* Validation Metrics — COMPUTED, NOT HARDCODED */}
       <div className="space-y-4">
         <div className="flex items-center space-x-2 border-b-2 border-slate-800 pb-3">
-          <ShieldCheck className="w-6 h-6 text-emerald-400" />
+          <FlaskConical className="w-6 h-6 text-violet-400" />
           <h2 className="text-xl font-black text-white uppercase tracking-wider">
-            Operational Impact & Safety Validation Metrics
+            Validated Safety Metrics
           </h2>
+          <span className="text-xs px-2 py-0.5 bg-violet-950 text-violet-400 border border-violet-800/50 rounded-full font-mono font-bold">
+            COMPUTED FROM {validationData?.totalTicks || '...'} SCENARIO TICKS
+          </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

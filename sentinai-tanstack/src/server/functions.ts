@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { generateTickData, setSimulatorScenario } from './simulator'
 import { queryComplianceAgent } from './ragEngine'
 import { knowledgeGraph } from './knowledgeGraph'
+import { runValidation } from './validationEngine'
 
 export const getLayoutFn = createServerFn({ method: 'GET' }).handler(async () => {
   return {
@@ -68,3 +69,7 @@ export const updatePermitStatusFn = createServerFn({ method: 'POST' })
   .handler(async ({ data }) => {
     return { status: 'updated', permit_id: data.permit_id, new_status: data.action }
   })
+
+export const runValidationFn = createServerFn({ method: 'GET' }).handler(async () => {
+  return runValidation()
+})

@@ -28,11 +28,11 @@ export default function RiskHUD({ history, currentRisk }: { history: any[]; curr
       <div className="grid grid-cols-2 gap-2 bg-slate-950/80 border border-slate-800/80 p-2.5 rounded-lg text-xs font-mono">
         <div className="flex items-center space-x-2 text-emerald-400">
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>False Negative Reduction: <strong className="text-emerald-300 font-extrabold">-99.4%</strong></span>
+          <span>Compound Detection: <strong className="text-emerald-300 font-extrabold">ACTIVE</strong></span>
         </div>
         <div className="flex items-center space-x-2 text-cyan-400">
           <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
-          <span>Incident Lead Time: <strong className="text-cyan-300 font-extrabold">+120 Mins</strong></span>
+          <span>Early Lead Time: <strong className="text-cyan-300 font-extrabold">ENABLED</strong></span>
         </div>
       </div>
 

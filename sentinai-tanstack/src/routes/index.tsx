@@ -8,6 +8,7 @@ import RAGChat from '../components/RAGChat';
 import SimulatorBar from '../components/SimulatorBar';
 import LandingHero from '../components/LandingHero';
 import KnowledgeGraphInspector from '../components/KnowledgeGraphInspector';
+import ValidationDashboard from '../components/ValidationDashboard';
 import { fetchLayout, fetchPermits, updatePermitStatus, connectTelemetryWebSocket } from '../services/api';
 import { LayoutGrid, SlidersHorizontal, GitFork } from 'lucide-react';
 
@@ -133,6 +134,9 @@ function Dashboard() {
 
             {/* Knowledge Graph Engine Inspector */}
             <KnowledgeGraphInspector telemetry={telemetryData} />
+
+            {/* Validation Engine — Real Confusion Matrix */}
+            <ValidationDashboard />
 
             {/* Bottom Grid: Permit Table, Telemetry, Regulatory RAG */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
