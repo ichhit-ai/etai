@@ -1,6 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { generateTickData, setSimulatorScenario } from './simulator'
 import { queryComplianceAgent } from './ragEngine'
+import { knowledgeGraph } from './knowledgeGraph'
 
 export const getLayoutFn = createServerFn({ method: 'GET' }).handler(async () => {
   return {
@@ -42,6 +43,12 @@ export const getPermitsFn = createServerFn({ method: 'GET' }).handler(async () =
 export const getTelemetryFn = createServerFn({ method: 'GET' }).handler(async () => {
   return generateTickData()
 })
+
+export const getKnowledgeGraphFn = createServerFn({ method: 'POST' })
+  .validator((data: { telemetry?: any }) => data)
+  .handler(async ({ data }) => {
+    return knowledgeGraph.getGraphState(data.telemetry)
+  })
 
 export const setScenarioFn = createServerFn({ method: 'POST' })
   .validator((data: { scenario_id: number }) => data)
